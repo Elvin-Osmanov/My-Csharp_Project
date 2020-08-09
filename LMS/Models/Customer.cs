@@ -16,5 +16,9 @@ namespace LMS.Models
         [Required]
         [StringLength(60)]
         public string Surname { get; set; }
+
+        [Required]
+        [StringLength(60)]
+        public string PhoneNumber { get; set; }
     }
 }

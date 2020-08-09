@@ -53,3 +53,5 @@ C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\LMS.csproj.CoreCompi
 C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\LMS.csproj.CopyComplete
 C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\DashboardWindow.g.cs
 C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\DashboardWindow.baml
+C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\ManagerWindow.g.cs
+C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\ManagerWindow.baml

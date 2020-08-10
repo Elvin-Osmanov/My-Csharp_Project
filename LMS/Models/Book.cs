@@ -16,13 +16,8 @@ namespace LMS.Models
         [Required]
         [StringLength(60)]
         public string Genre { get; set; }
-
-        [Required]
         
-        public int Quantity { get; set; }
-
         [Required]
-        
         public double Price { get; set; }
 
     }

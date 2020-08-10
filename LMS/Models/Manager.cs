@@ -21,5 +21,12 @@ namespace LMS.Models
         [Required]
         [Column(TypeName = "date")]
         public DateTime BirthDate { get; set; }
+
+        [Required]
+        [StringLength(60)]
+        public string Speciality { get; set; }
+
+
+        
     }
 }

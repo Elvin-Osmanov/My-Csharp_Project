@@ -20,5 +20,9 @@ namespace LMS.Models
         [Required]
         [StringLength(60)]
         public string PhoneNumber { get; set; }
+
+        public List<Order> Order { get; set; }
+
+
     }
 }

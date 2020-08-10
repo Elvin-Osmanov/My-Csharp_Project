@@ -4,14 +4,16 @@ using LMS.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LMS.Migrations
 {
     [DbContext(typeof(LmsContext))]
-    partial class LmsContextModelSnapshot : ModelSnapshot
+    [Migration("20200809123505_ManagerPropAddition")]
+    partial class ManagerPropAddition
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,6 +73,9 @@ namespace LMS.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("Books");
@@ -118,7 +123,7 @@ namespace LMS.Migrations
                         .HasColumnType("nvarchar(60)")
                         .HasMaxLength(60);
 
-                    b.Property<string>("Speciality")
+                    b.Property<string>("Specialitity")
                         .IsRequired()
                         .HasColumnType("nvarchar(60)")
                         .HasMaxLength(60);
@@ -131,29 +136,6 @@ namespace LMS.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Managers");
-                });
-
-            modelBuilder.Entity("LMS.Models.Order", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("date");
-
-                    b.Property<int>("CustomerId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("ReturnDate")
-                        .HasColumnType("date");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CustomerId");
-
-                    b.ToTable("Order");
                 });
 
             modelBuilder.Entity("LMS.Models.Report", b =>
@@ -172,15 +154,6 @@ namespace LMS.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Reports");
-                });
-
-            modelBuilder.Entity("LMS.Models.Order", b =>
-                {
-                    b.HasOne("LMS.Models.Customer", "Customer")
-                        .WithMany("Order")
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

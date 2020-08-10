@@ -21,5 +21,12 @@ namespace LMS.Windows
         {
             InitializeComponent();
         }
+
+        private void BtnManagers_Click(object sender, RoutedEventArgs e)
+        {
+            ManagerWindow mw = new ManagerWindow();
+            mw.ShowDialog();
+            
+        }
     }
 }

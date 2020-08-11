@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace LMS.Models
@@ -13,11 +14,17 @@ namespace LMS.Models
         [StringLength(60)]
         public string Name { get; set; }
 
+        
+        public int GenreId { get; set; }
+
+        public Genre Genre { get; set; }
+
         [Required]
         [StringLength(60)]
-        public string Genre { get; set; }
-        
+        public string Author { get; set; }
+
         [Required]
+        [Column(TypeName = "money")]
         public double Price { get; set; }
 
     }

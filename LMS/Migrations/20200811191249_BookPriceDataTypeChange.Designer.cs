@@ -4,14 +4,16 @@ using LMS.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LMS.Migrations
 {
     [DbContext(typeof(LmsContext))]
-    partial class LmsContextModelSnapshot : ModelSnapshot
+    [Migration("20200811191249_BookPriceDataTypeChange")]
+    partial class BookPriceDataTypeChange
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,7 +65,10 @@ namespace LMS.Migrations
                         .HasColumnType("nvarchar(60)")
                         .HasMaxLength(60);
 
-                    b.Property<int>("GenreId")
+                    b.Property<string>("GenreId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("GenreId1")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -76,7 +81,7 @@ namespace LMS.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GenreId");
+                    b.HasIndex("GenreId1");
 
                     b.ToTable("Books");
                 });
@@ -202,9 +207,7 @@ namespace LMS.Migrations
                 {
                     b.HasOne("LMS.Models.Genre", "Genre")
                         .WithMany("Book")
-                        .HasForeignKey("GenreId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("GenreId1");
                 });
 
             modelBuilder.Entity("LMS.Models.Order", b =>

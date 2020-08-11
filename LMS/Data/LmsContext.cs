@@ -24,6 +24,8 @@ namespace LMS.Data
 
         public DbSet<Order> Orders { get; set; }
 
+        public DbSet<Genre> Genres { get; set; }
+
 
     }
 }

@@ -34,5 +34,11 @@ namespace LMS.Windows
             CustomerWindow customerWindow = new CustomerWindow();
             customerWindow.ShowDialog();
         }
+
+        private void BtnBooks_Click(object sender, RoutedEventArgs e)
+        {
+            BookWindow bw = new BookWindow();
+            bw.ShowDialog();
+        }
     }
 }

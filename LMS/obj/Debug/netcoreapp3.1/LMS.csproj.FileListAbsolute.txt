@@ -57,3 +57,5 @@ C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\ManagerWindo
 C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\ManagerWindow.baml
 C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\CustomerWindow.g.cs
 C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\CustomerWindow.baml
+C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\BookWindow.g.cs
+C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\BookWindow.baml

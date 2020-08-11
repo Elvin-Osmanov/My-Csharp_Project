@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 C:\Users\Elvin\source\repos\LMS\LMS\App.xaml
-4-1627529548
+51974372621
 
-30-1569237067
+401977947091
 2121102171777
-Windows\CustomerWindow.xaml;Windows\DashboardWindow.xaml;Windows\LoginWindow.xaml;Windows\ManagerWindow.xaml;
+Windows\BookWindow.xaml;Windows\CustomerWindow.xaml;Windows\DashboardWindow.xaml;Windows\LoginWindow.xaml;Windows\ManagerWindow.xaml;
 
 False
 

@@ -20,7 +20,9 @@ namespace LMS.Data
 
         public DbSet<Manager> Managers { get; set; }
 
-        public DbSet<Report> Reports { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
 
 
     }

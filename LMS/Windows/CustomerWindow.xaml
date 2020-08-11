@@ -1,0 +1,34 @@
+﻿<Window x:Class="LMS.Windows.CustomerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LMS.Windows"
+        mc:Ignorable="d"
+        Title="Customer" Height="501" Width="779" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <DataGrid x:Name="DgvCustomers" Margin="254,10,10,10" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False" SelectionChanged="DgvCustomers_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="0.15*" Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Width="0.15*" Header="Surname" Binding="{Binding Surname}"/>
+                <DataGridTextColumn Width="0.17*" Header="Birth Date" Binding="{Binding BirthDate, StringFormat=\{0:dd.MM.yyyy \}}"/>
+                <DataGridTextColumn Width="0.23*" Header="Phone Number" Binding="{Binding PhoneNumber}"/>
+                <DataGridTextColumn Width="0.25*" Header="Created At" Binding="{Binding CreatedAt}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Margin="0,0,530,0">
+            <Button x:Name="BtnAddC" Content="Add" HorizontalAlignment="Left" Margin="28,373,0,0" VerticalAlignment="Top" Width="80" Height="26" Click="BtnAddC_Click"/>
+            <Button x:Name="BtnEditC" Content="Edit" HorizontalAlignment="Left" Margin="142,373,0,0" VerticalAlignment="Top" Width="78" Height="26" IsEnabled="False" Click="BtnEditC_Click"/>
+            <Button x:Name="BtnDeleteC" Content="Delete" HorizontalAlignment="Center" Margin="0,420,0,0" VerticalAlignment="Top" Width="80" Height="26" IsEnabled="False" Click="BtnDeleteC_Click"/>
+            <Label x:Name="LblCName" Content="Name*" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" Width="80" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="LblCSurname" Content="Surname*" HorizontalAlignment="Center" Margin="0,99,0,0" VerticalAlignment="Top" Width="80" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="LblCBirth" Content="Date of Birth*" HorizontalAlignment="Center" Margin="0,264,0,0" VerticalAlignment="Top" Width="112" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <DatePicker x:Name="DtpCBirthInner" HorizontalAlignment="Center" Margin="0,320,0,0" VerticalAlignment="Top" Width="112"/>
+            <TextBox x:Name="TxtCName" HorizontalAlignment="Center" Margin="0,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192"/>
+            <TextBox x:Name="TxtCSurname" HorizontalAlignment="Center" Margin="0,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192"/>
+            <TextBox x:Name="TxtCPhone" HorizontalAlignment="Center" Margin="0,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192"/>
+            <Label x:Name="LblCPhone" Content="Phone Number*" HorizontalAlignment="Center" Margin="0,185,0,0" VerticalAlignment="Top" Width="134" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </Grid>
+    </Grid>
+</Window>

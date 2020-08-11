@@ -149,7 +149,7 @@ namespace LMS.Windows {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/LMS;V1.0.0.0;component/windows/managerwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/LMS;component/windows/managerwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Windows\ManagerWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

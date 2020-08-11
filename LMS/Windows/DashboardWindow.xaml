@@ -17,7 +17,7 @@
         <Grid Margin="75,241,75,155">
             <Button x:Name="BtnBooks" Content="Books" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Height="53" Width="139" Background="#FFD9FF00"/>
             <Button x:Name="BtnManagers" Content="Managers" HorizontalAlignment="Center" VerticalAlignment="Center" Height="53" Width="139" Background="#FFD9FF00" Click="BtnManagers_Click"/>
-            <Button x:Name="BtnCustomers" Content="Customers" HorizontalAlignment="Left" VerticalAlignment="Center" Height="53" Width="139" Background="#FFD9FF00" Margin="514,0,0,0"/>
+            <Button x:Name="BtnCustomers" Content="Customers" HorizontalAlignment="Left" VerticalAlignment="Center" Height="53" Width="139" Background="#FFD9FF00" Margin="514,0,0,0" Click="BtnCustomers_Click"/>
         </Grid>
         <Label Content="Info" HorizontalAlignment="Center" Margin="0,357,0,0" VerticalAlignment="Top" Width="108" FontSize="20" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Grid Margin="206,397,206,23">

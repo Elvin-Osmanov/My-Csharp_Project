@@ -4,14 +4,16 @@ using LMS.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LMS.Migrations
 {
     [DbContext(typeof(LmsContext))]
-    partial class LmsContextModelSnapshot : ModelSnapshot
+    [Migration("20200811075836_CustomerOrderAnnotationAdd")]
+    partial class CustomerOrderAnnotationAdd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,9 +84,6 @@ namespace LMS.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("BirthDate")
-                        .HasColumnType("date");
 
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAddOrUpdate()

@@ -55,3 +55,5 @@ C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\DashboardWin
 C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\DashboardWindow.baml
 C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\ManagerWindow.g.cs
 C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\ManagerWindow.baml
+C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\CustomerWindow.g.cs
+C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\CustomerWindow.baml

@@ -10,14 +10,17 @@ namespace LMS.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        
         public int CustomerId { get; set; }
 
         public Customer Customer { get; set; }
 
+        [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Column(TypeName = "date")]
         public DateTime CreatedAt { get; set; }
 
+        [Required]
         [Column(TypeName = "date")]
         public DateTime ReturnDate { get; set; }
 

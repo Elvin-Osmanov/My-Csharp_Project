@@ -28,5 +28,11 @@ namespace LMS.Windows
             mw.ShowDialog();
             
         }
+
+        private void BtnCustomers_Click(object sender, RoutedEventArgs e)
+        {
+            CustomerWindow customerWindow = new CustomerWindow();
+            customerWindow.ShowDialog();
+        }
     }
 }

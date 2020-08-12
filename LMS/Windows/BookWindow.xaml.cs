@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -126,6 +127,8 @@ namespace LMS.Windows
 
         #endregion
 
+        //Book CRUD starts
+
         private void BtnAddB_Click(object sender, RoutedEventArgs e)
         {
             if (FormValidation())
@@ -134,11 +137,7 @@ namespace LMS.Windows
                 return;
             }
 
-            //if (PriceValidation())
-            //{
-            //    MessageBox.Show("Please number for Price input");
-            //    return;
-            //}
+            
 
             Book book = new Book()
             {
@@ -159,12 +158,99 @@ namespace LMS.Windows
 
         private void BtnEditB_Click(object sender, RoutedEventArgs e)
         {
+            if (FormValidation())
+            {
+                MessageBox.Show("Fill the obligatory places e.g *");
+                return;
+            }
 
+            _selectedBook.Name = TxtBName.Text;
+            _selectedBook.Price = (double)Convert.ToDouble(TxtPrice.Text);
+            _selectedBook.Author = TxtAuthor.Text;
+            _selectedBook.Genre = (Genre)LbGenre.SelectedItem;
+            _context.SaveChanges();
+
+            Reset();
+
+            MessageBox.Show("Book is Edited");
         }
 
         private void BtnDeleteB_Click(object sender, RoutedEventArgs e)
         {
+            MessageBoxResult r = MessageBox.Show("Are you sure?", _selectedBook.ToString(), MessageBoxButton.YesNo);
 
+            if (r == MessageBoxResult.Yes)
+            {
+                _context.Books.Remove(_selectedBook);
+                _context.SaveChanges();
+
+                Reset();
+
+                MessageBox.Show("Book is Deleted");
+            }
         }
+
+        private void DgvBooks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (DgvBooks.SelectedItem == null) return;
+
+            _selectedBook = (Book)DgvBooks.SelectedItem;
+
+            TxtBName.Text = _selectedBook.Name;
+            TxtAuthor.Text = _selectedBook.Author;
+            TxtPrice.Text = _selectedBook.Price.ToString();
+            LbGenre.SelectedItem = _selectedBook.Genre;
+
+            BtnAddB.IsEnabled = false;
+            BtnDeleteB.IsEnabled = true;
+            BtnEditB.IsEnabled = true;
+        }
+
+        //Book CRUD ends
+
+
+
+
+
+        #region TxtBoxControl
+
+        private void TxtPrice_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9,]+").IsMatch(e.Text);
+        }
+
+        private void TxtBName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!Regex.IsMatch(TxtBName.Text, "^[a-zA-Z_ ]*$"))
+            {
+                MessageBox.Show("Name textbox accepts only alphabetical characters");
+                TxtBName.Clear();
+
+            }
+        }
+
+        private void TxtAuthor_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!Regex.IsMatch(TxtAuthor.Text, "^[a-zA-Z_ ]*$"))
+            {
+                MessageBox.Show("Author textbox accepts only alphabetical characters");
+                TxtAuthor.Clear();
+
+            }
+        }
+
+        #endregion
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

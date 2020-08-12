@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -178,5 +179,36 @@ namespace LMS.Windows
         }
 
         //Customer CRUD Ends
+
+        #region TxtBoxControl
+
+        private void TxtCName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!Regex.IsMatch(TxtCName.Text, "^[a-zA-Z_ ]*$"))
+            {
+                MessageBox.Show("Name textbox accepts only alphabetical characters");
+                TxtCName.Clear();
+
+            }
+        }
+
+        private void TxtCSurname_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!Regex.IsMatch(TxtCSurname.Text, "^[a-zA-Z_ ]*$"))
+            {
+                MessageBox.Show("Surname textbox accepts only alphabetical characters");
+                TxtCSurname.Clear();
+
+            }
+        }
+
+        private void TxtCPhone_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
+        }
+
+        #endregion
+
+
     }
 }

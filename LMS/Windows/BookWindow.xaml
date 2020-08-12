@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Book" Height="642" Width="909" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <DataGrid x:Name="DgvBooks" Margin="370,10,10,10" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False">
+        <DataGrid x:Name="DgvBooks" Margin="370,10,10,10" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False" SelectionChanged="DgvBooks_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="0.25*" Header="Name" Binding="{Binding Name}"/>
                 <DataGridTextColumn Width="0.25*" Header="Genre" Binding="{Binding Genre.Name}"/>
@@ -17,14 +17,14 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Grid Margin="0,0,544,0">
+        <Grid Margin="0,0,544,0" >
             <Label x:Name="LblBName" Content="Name of the Book*" HorizontalAlignment="Center" Margin="0,54,0,0" VerticalAlignment="Top" Height="29" Width="146" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="15"/>
-            <TextBox x:Name="TxtBName" HorizontalAlignment="Center" Margin="0,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
+            <TextBox x:Name="TxtBName" HorizontalAlignment="Center" Margin="0,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" TextChanged="TxtBName_TextChanged"  />
             <Label x:Name="LblGenre" Content="Genre*" HorizontalAlignment="Center" Margin="0,146,0,0" VerticalAlignment="Top" Height="29" Width="63" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="15"/>
             <Label x:Name="LblAuthor" Content="Author*" HorizontalAlignment="Center" VerticalAlignment="Top" Height="29" Width="84" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="15" Margin="0,364,0,0"/>
-            <TextBox x:Name="TxtAuthor" HorizontalAlignment="Left" Margin="78,417,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
+            <TextBox x:Name="TxtAuthor" HorizontalAlignment="Left" Margin="78,417,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" TextChanged="TxtAuthor_TextChanged"/>
             <Label x:Name="LblPrice" Content="Price*" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29" Width="62" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="15" Margin="76,470,0,0"/>
-            <TextBox x:Name="TxtPrice" HorizontalAlignment="Left" Margin="186,470,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Height="29"/>
+            <TextBox x:Name="TxtPrice" HorizontalAlignment="Left" Margin="186,470,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Height="29" PreviewTextInput="TxtPrice_PreviewTextInput"/>
             <Label x:Name="LblDollar" Content="$" HorizontalAlignment="Left" Margin="169,470,0,0" VerticalAlignment="Top" Height="29" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" FontWeight="Bold"/>
             <Button x:Name="BtnAddB" Content="Add" HorizontalAlignment="Left" Margin="49,538,0,0" VerticalAlignment="Top" Click="BtnAddB_Click"/>
             <Button x:Name="BtnEditB" Content="Edit" HorizontalAlignment="Center" Margin="0,538,0,0" VerticalAlignment="Top" IsEnabled="False" Click="BtnEditB_Click"/>

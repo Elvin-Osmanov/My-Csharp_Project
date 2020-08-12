@@ -25,9 +25,9 @@
             <Label x:Name="LblCSurname" Content="Surname*" HorizontalAlignment="Center" Margin="0,99,0,0" VerticalAlignment="Top" Width="80" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Label x:Name="LblCBirth" Content="Date of Birth*" HorizontalAlignment="Center" Margin="0,264,0,0" VerticalAlignment="Top" Width="112" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <DatePicker x:Name="DtpCBirthInner" HorizontalAlignment="Center" Margin="0,320,0,0" VerticalAlignment="Top" Width="112"/>
-            <TextBox x:Name="TxtCName" HorizontalAlignment="Center" Margin="0,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192"/>
-            <TextBox x:Name="TxtCSurname" HorizontalAlignment="Center" Margin="0,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192"/>
-            <TextBox x:Name="TxtCPhone" HorizontalAlignment="Center" Margin="0,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192"/>
+            <TextBox x:Name="TxtCName" HorizontalAlignment="Center" Margin="0,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" TextChanged="TxtCName_TextChanged"/>
+            <TextBox x:Name="TxtCSurname" HorizontalAlignment="Center" Margin="0,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" TextChanged="TxtCSurname_TextChanged"/>
+            <TextBox x:Name="TxtCPhone" HorizontalAlignment="Center" Margin="0,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" PreviewTextInput="TxtCPhone_PreviewTextInput"/>
             <Label x:Name="LblCPhone" Content="Phone Number*" HorizontalAlignment="Center" Margin="0,185,0,0" VerticalAlignment="Top" Width="134" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         </Grid>
     </Grid>

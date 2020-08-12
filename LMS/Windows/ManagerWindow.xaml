@@ -22,10 +22,10 @@
             <Label x:Name="LblSurname" Content="Surname*" HorizontalAlignment="Center" Margin="0,139,0,0" VerticalAlignment="Top" Width="140" FontSize="15" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Label x:Name="LblDate" Content="Date of  Birth*" HorizontalAlignment="Center" Margin="0,217,0,0" VerticalAlignment="Top" Width="140" FontSize="15" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <DatePicker x:Name="DtpDate" HorizontalAlignment="Center" Margin="0,262,0,0" VerticalAlignment="Top" Width="140"/>
-            <TextBox x:Name="TxtMsurname" HorizontalAlignment="Center" Margin="0,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="26"/>
-            <TextBox x:Name="TxtMname" HorizontalAlignment="Center" Margin="0,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="26"/>
+            <TextBox x:Name="TxtMsurname" HorizontalAlignment="Center" Margin="0,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="26" TextChanged="TxtMsurname_TextChanged"/>
+            <TextBox x:Name="TxtMname" HorizontalAlignment="Center" Margin="0,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="26" TextChanged="TxtMname_TextChanged"/>
             <Label x:Name="LblSpeciality" Content="Speciality*" HorizontalAlignment="Center" Margin="0,314,0,0" VerticalAlignment="Top" Width="140" FontSize="15" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-            <TextBox x:Name="TxtSpeciality" HorizontalAlignment="Center" Margin="0,366,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="26"/>
+            <TextBox x:Name="TxtSpeciality" HorizontalAlignment="Center" Margin="0,366,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="26" TextChanged="TxtSpeciality_TextChanged"/>
             <Button x:Name="BtnAddM" Content="Add" HorizontalAlignment="Center" Margin="0,432,0,0" VerticalAlignment="Top" Width="113" Height="33" Foreground="#DDFFFFFF" Click="BtnAddM_Click"/>
             <Button x:Name="BtnEditM" Content="Edit" HorizontalAlignment="Center" Margin="0,490,0,0" VerticalAlignment="Top" Width="114" Height="33" Foreground="#DDFFFFFF" IsEnabled="False" Click="BtnEditM_Click"/>
             <Button x:Name="BtnDeleteM" Content="Delete" HorizontalAlignment="Center" Margin="0,546,0,0" VerticalAlignment="Top" Width="112" Height="33" Foreground="#DDFFFFFF" IsEnabled="False" Click="BtnDeleteM_Click"/>

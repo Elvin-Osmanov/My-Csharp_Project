@@ -5,18 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LMS.Windows"
         mc:Ignorable="d"
-        Title="Manager" Height="628" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Manager" Height="753" Width="1110" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <DataGrid x:Name="DgvManagers" Margin="314,10,10,115" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False" SelectionChanged="DgvManagers_SelectionChanged" >
+        <DataGrid x:Name="DgvManagers" Margin="314,10,10,46" CanUserDeleteRows="False" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False" SelectionChanged="DgvManagers_SelectionChanged" >
             <DataGrid.Columns>
-                <DataGridTextColumn Width="0.10*" Header="Id" Binding="{Binding Id}"/>
+
                 <DataGridTextColumn Width="0.20*" Header="Name" Binding="{Binding Name}"/>
                 <DataGridTextColumn Width="0.20*" Header="Surname" Binding="{Binding Surname}"/>
-                <DataGridTextColumn Width="0.20*" Header="Date" Binding="{Binding BirthDate, StringFormat=\{0:dd.MM.yyyy \}}"/>
-                <DataGridTextColumn Width="0.30*" Header="Speciality" Binding="{Binding Speciality}"/>
+                <DataGridTextColumn Width="0.15*" Header="Date" Binding="{Binding BirthDate, StringFormat=\{0:dd.MM.yyyy \}}"/>
+                <DataGridTextColumn Width="0.15*" Header="Speciality" Binding="{Binding Speciality}"/>
+                <DataGridTextColumn Width="0.20*" Header="Email" Binding="{Binding Email}"/>
+                <DataGridTextColumn Width="0.10*" Header="Pass" Binding="{Binding Password}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Grid Margin="0,0,491,0">
+        <Grid Margin="0,0,801,0">
             <Label Content="New Manager" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="289" FontSize="20" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="48" Foreground="#DD05FF3E"/>
             <Label x:Name="LblName" Content="Name*" HorizontalAlignment="Center" Margin="0,63,0,0" VerticalAlignment="Top" Width="140" FontSize="15" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Label x:Name="LblSurname" Content="Surname*" HorizontalAlignment="Center" Margin="0,139,0,0" VerticalAlignment="Top" Width="140" FontSize="15" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
@@ -26,9 +28,13 @@
             <TextBox x:Name="TxtMname" HorizontalAlignment="Center" Margin="0,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="26" TextChanged="TxtMname_TextChanged"/>
             <Label x:Name="LblSpeciality" Content="Speciality*" HorizontalAlignment="Center" Margin="0,314,0,0" VerticalAlignment="Top" Width="140" FontSize="15" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <TextBox x:Name="TxtSpeciality" HorizontalAlignment="Center" Margin="0,366,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="26" TextChanged="TxtSpeciality_TextChanged"/>
-            <Button x:Name="BtnAddM" Content="Add" HorizontalAlignment="Center" Margin="0,432,0,0" VerticalAlignment="Top" Width="113" Height="33" Foreground="#DDFFFFFF" Click="BtnAddM_Click"/>
-            <Button x:Name="BtnEditM" Content="Edit" HorizontalAlignment="Center" Margin="0,490,0,0" VerticalAlignment="Top" Width="114" Height="33" Foreground="#DDFFFFFF" IsEnabled="False" Click="BtnEditM_Click"/>
-            <Button x:Name="BtnDeleteM" Content="Delete" HorizontalAlignment="Center" Margin="0,546,0,0" VerticalAlignment="Top" Width="112" Height="33" Foreground="#DDFFFFFF" IsEnabled="False" Click="BtnDeleteM_Click"/>
+            <Button x:Name="BtnAddM" Content="Add" HorizontalAlignment="Left" Margin="96,568,0,0" VerticalAlignment="Top" Width="114" Height="33" Foreground="#DDFFFFFF" Click="BtnAddM_Click"/>
+            <Button x:Name="BtnEditM" Content="Edit" HorizontalAlignment="Center" Margin="0,622,0,0" VerticalAlignment="Top" Width="114" Height="33" Foreground="#DDFFFFFF" IsEnabled="False" Click="BtnEditM_Click"/>
+            <Button x:Name="BtnDeleteM" Content="Delete" HorizontalAlignment="Center" Margin="0,676,0,0" VerticalAlignment="Top" Width="112" Height="33" Foreground="#DDFFFFFF" IsEnabled="False" Click="BtnDeleteM_Click"/>
+            <Label x:Name="LblEmail" Content="Email*" HorizontalAlignment="Center" Margin="0,397,0,0" VerticalAlignment="Top" Width="140" FontSize="15" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="LblPass" Content="Password*" HorizontalAlignment="Left" Margin="112,481,0,0" VerticalAlignment="Top" Width="82" FontSize="15" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="TxtEmail" HorizontalAlignment="Center" Margin="0,430,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="26" PreviewKeyDown="TxtEmail_PreviewKeyDown" />
+            <TextBox x:Name="TxtPassword" HorizontalAlignment="Left" Margin="63,509,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="26" PreviewKeyDown="TxtPassword_PreviewKeyDown" />
         </Grid>
     </Grid>
 </Window>

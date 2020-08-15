@@ -24,6 +24,15 @@ namespace LMS.Models
         [Column(TypeName = "date")]
         public DateTime ReturnDate { get; set; }
 
+        [Required]
+        [Column(TypeName = "money")]
+        public decimal OrderPrice { get; set; }
+
+        [Column(TypeName = "money")]
+        public decimal? Fine { get; set; }
+
+        public IList<OrderItem> OrderItem { get; set; }
+
 
     }
 }

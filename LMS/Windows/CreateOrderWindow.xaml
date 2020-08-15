@@ -1,0 +1,61 @@
+﻿<Window x:Class="LMS.Windows.CreateOrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LMS.Windows"
+        mc:Ignorable="d"
+        Title="CreateOrderWindow" Height="494" Width="1473" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
+    <Grid>
+        <Grid Margin="0,0,1142,0">
+            <Label x:Name="LblCSearch" Content="Customer Search" HorizontalAlignment="Center" Margin="0,23,0,0" VerticalAlignment="Top" Width="126" FontWeight="Bold" FontSize="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="TxtCSearch" HorizontalAlignment="Center" Margin="0,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
+            <Label x:Name="LblCList" Content="List of Customers" HorizontalAlignment="Center" Margin="0,211,0,0" VerticalAlignment="Top" Width="206" FontWeight="Bold" FontSize="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Button x:Name="BtnCSearch" Content="Search" HorizontalAlignment="Center" Margin="0,124,0,0" VerticalAlignment="Top" Width="126" Click="BtnCSearch_Click" />
+            <DataGrid x:Name="DgvSCustomers" Margin="10,300,10,10" CanUserSortColumns="False" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="DgvSCustomers_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="0.25*" Header="Name" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Width="0.25*" Header="Surname" Binding="{Binding Surname}"/>
+                    <DataGridTextColumn Width="0.50*" Header="Phone Number" Binding="{Binding PhoneNumber}"/>
+                </DataGrid.Columns>
+
+            </DataGrid>
+            <Label x:Name="LblSelectedC" Content="Please Select Customer" Visibility="Hidden" HorizontalAlignment="Center" Margin="0,244,0,0" VerticalAlignment="Top" Width="259" Background="White" Foreground="#DDFF0000" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="29" FontSize="15"/>
+        </Grid>
+        <Grid Margin="680,0,583,0">
+            <Button x:Name="BtnCartAdd" Content="Create Order" HorizontalAlignment="Center" VerticalAlignment="Top" Width="148" Height="62" FontWeight="Bold" Click="BtnCartAdd_Click" Margin="0,369,0,0"/>
+            <Label x:Name="LblDeadLine" Content="Deadline" HorizontalAlignment="Center" Margin="0,155,0,0" VerticalAlignment="Top" Height="24" Width="98" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" FontWeight="Bold"/>
+            <DatePicker x:Name="DtpDeadline" HorizontalAlignment="Center" Margin="0,201,0,0" VerticalAlignment="Top" Height="38" Width="148" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="LblCreatedOrderDt" Content="Order Created Date" HorizontalAlignment="Center" Margin="0,23,0,0" VerticalAlignment="Top" Height="24" Width="190" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" FontWeight="Bold"/>
+            <DatePicker x:Name="DtpOrderCreatedDate" HorizontalAlignment="Center" Margin="0,81,0,0" VerticalAlignment="Top" Height="38" Width="148" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="LblReturnDate" Content="Please select deadline " Visibility="Hidden" HorizontalAlignment="Center" Margin="0,291,0,0" VerticalAlignment="Top" Width="190" Height="44" Foreground="#DDFF0000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" FontWeight="Bold"/>
+        </Grid>
+        <DataGrid x:Name="DgvOrders" Margin="895,10,10,37" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="0.20*" Header="Customer" Binding="{Binding CustomerId.Name}"/>
+                <DataGridTextColumn Width="0.20*" Header="Book" Binding="{Binding BookId.Name}"/>
+                <DataGridTextColumn Width="0.20*" Header="Price Per Week" Binding="{Binding PricePerWeek}"/>
+                <DataGridTextColumn Width="0.20*" Header="Total Price" Binding="{Binding OrderPrice}"/>
+                <DataGridTextColumn Width="0.20*" Header="Order Date" Binding="{Binding CreatedAt}"/>
+                <DataGridTextColumn Width="0.20*" Header="Deadline" Binding="{Binding ReturnDate}"/>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Grid Margin="336,0,798,0">
+            <Label x:Name="LblBSearch" Content="Book Search" HorizontalAlignment="Center" Margin="0,23,0,0" VerticalAlignment="Top" Width="126" FontWeight="Bold" FontSize="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="TxtBSearch" HorizontalAlignment="Center" Margin="0,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" Height="29"/>
+            <Button x:Name="BtnBSearch" Content="Search" HorizontalAlignment="Center" Margin="0,123,0,0" VerticalAlignment="Top" Width="126" Click="BtnBSearch_Click"/>
+            <Label x:Name="LblBList" Content="List of Books" HorizontalAlignment="Center" Margin="0,211,0,0" VerticalAlignment="Top" Width="206" FontWeight="Bold" FontSize="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <DataGrid x:Name="DgvSBooks" Margin="10,305,10,10" CanUserSortColumns="False" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="DgvSBooks_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="0.40*" Header="Name" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Width="0.40*" Header="Author" Binding="{Binding Author}"/>
+                    <DataGridTextColumn Width="0.20*" Header="Price" Binding="{Binding Price}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label x:Name="LblSelectedB" Content="Please Select Book" Visibility="Hidden" HorizontalAlignment="Center" Margin="0,244,0,0" VerticalAlignment="Top" Width="259" Background="White" Foreground="#DDFF0000" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="29" FontSize="15"/>
+        </Grid>
+
+    </Grid>
+</Window>

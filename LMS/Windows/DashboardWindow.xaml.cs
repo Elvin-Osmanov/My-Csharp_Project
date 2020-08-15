@@ -40,5 +40,29 @@ namespace LMS.Windows
             BookWindow bw = new BookWindow();
             bw.ShowDialog();
         }
+
+        private void BtnCreate_Click(object sender, RoutedEventArgs e)
+        {
+            CreateOrderWindow cow = new CreateOrderWindow();
+            cow.ShowDialog();
+        }
+
+        private void BtnReturn_Click(object sender, RoutedEventArgs e)
+        {
+            BookReturnWindow brw = new BookReturnWindow();
+            brw.ShowDialog();
+        }
+
+        private void BtnStream_Click(object sender, RoutedEventArgs e)
+        {
+            OrderStreamingWindow osw = new OrderStreamingWindow();
+            osw.ShowDialog();
+        }
+
+        private void BtnButtonReport_Click(object sender, RoutedEventArgs e)
+        {
+            SalesReportWindow srw = new SalesReportWindow();
+            srw.ShowDialog();
+        }
     }
 }

@@ -7,7 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Windows\BookReturnWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Windows\BookWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\CreateOrderWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Windows\CustomerWindow.xaml.cs">
@@ -22,9 +28,21 @@
     <Compile Update="Windows\ManagerWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Windows\OrderStreamingWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\SalesReportWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Windows\BookReturnWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Windows\BookWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\CreateOrderWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\CustomerWindow.xaml">
@@ -37,6 +55,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\ManagerWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\OrderStreamingWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\SalesReportWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

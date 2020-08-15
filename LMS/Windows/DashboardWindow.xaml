@@ -9,9 +9,9 @@
     <Grid>
         <Label Content="Orders" HorizontalAlignment="Center" Margin="0,23,0,0" VerticalAlignment="Top" Height="45" Width="108" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" FontWeight="Bold"/>
         <Grid Margin="75,73,75,320">
-            <Button x:Name="BtnCreate" Content="Create an Order" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Height="62" Width="141" Background="#FF00A8FF" BorderBrush="#FF00BAFF"/>
-            <Button x:Name="BtnReturn" Content="Book Return" HorizontalAlignment="Center" VerticalAlignment="Center" Height="62" Width="140" Background="Red" BorderBrush="Red"/>
-            <Button x:Name="BtnStream" Content="Order Streaming" HorizontalAlignment="Left" Margin="512,0,0,0" VerticalAlignment="Center" Height="62" Width="141"/>
+            <Button x:Name="BtnCreate" Content="Create an Order" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Height="62" Width="141" Background="#FF00A8FF" BorderBrush="#FF00BAFF" Click="BtnCreate_Click"/>
+            <Button x:Name="BtnReturn" Content="Book Return" HorizontalAlignment="Center" VerticalAlignment="Center" Height="62" Width="140" Background="Red" BorderBrush="Red" Click="BtnReturn_Click"/>
+            <Button x:Name="BtnStream" Content="Order Streaming" HorizontalAlignment="Left" Margin="512,0,0,0" VerticalAlignment="Center" Height="62" Width="141" Click="BtnStream_Click"/>
         </Grid>
         <Label Content="Add to DataBase" HorizontalAlignment="Center" Margin="0,192,0,0" VerticalAlignment="Top" Height="31" Width="202" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" FontWeight="Bold"/>
         <Grid Margin="75,241,75,155">
@@ -21,7 +21,7 @@
         </Grid>
         <Label Content="Info" HorizontalAlignment="Center" Margin="0,357,0,0" VerticalAlignment="Top" Width="108" FontSize="20" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Grid Margin="206,397,206,23">
-            <Button x:Name="BtnButtonReport" Content="Sales Report" HorizontalAlignment="Center" VerticalAlignment="Center" Height="42" Width="130" Background="#FF0015FF" Foreground="#DDFFFFFF" BorderBrush="#FF004CFF"/>
+            <Button x:Name="BtnButtonReport" Content="Sales Report" HorizontalAlignment="Center" VerticalAlignment="Center" Height="42" Width="130" Background="#FF0015FF" Foreground="#DDFFFFFF" BorderBrush="#FF004CFF" Click="BtnButtonReport_Click"/>
         </Grid>
 
     </Grid>

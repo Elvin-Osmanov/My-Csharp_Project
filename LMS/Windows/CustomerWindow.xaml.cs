@@ -43,6 +43,7 @@ namespace LMS.Windows
             TxtCSurname.Clear();
             TxtCPhone.Clear();
             DtpCBirthInner.SelectedDate = null;
+           
 
 
             BtnAddC.IsEnabled = true;
@@ -207,8 +208,11 @@ namespace LMS.Windows
             e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
         }
 
+
+
+
         #endregion
 
-
+       
     }
 }

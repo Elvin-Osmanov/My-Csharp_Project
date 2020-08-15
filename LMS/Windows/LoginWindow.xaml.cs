@@ -1,4 +1,5 @@
 ﻿using LMS.Data;
+using LMS.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,18 +29,21 @@ namespace LMS.Windows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string username = _context.Administrators.Find(1).Username;
-            string password = _context.Administrators.Find(1).Password;
+            
+            
 
-            if (string.IsNullOrEmpty(TxtUser.Text)&& string.IsNullOrEmpty(TxtPass.Password))
+
+
+
+            if (string.IsNullOrEmpty(TxtUser.Text) || string.IsNullOrEmpty(TxtPass.Password))
             {
                 MessageBox.Show("Please fill all inputs");
 
             }
             else
             {
-
-                if (TxtUser.Text == username && TxtPass.Password == password)
+                //admin log
+                if (TxtUser.Text == "admin" && TxtPass.Password == "admin")
                 {
                     DashboardWindow dw = new DashboardWindow();
                     dw.Show();
@@ -50,9 +54,30 @@ namespace LMS.Windows
                     LblMessage.Visibility = Visibility.Visible;
                 }
 
+                
+
+
             }
 
-            
+            //var manager = _context.Managers.FirstOrDefault(m => m.Email.Contains(TxtUser.Text));
+            ////manager log
+            //if (manager.Email == null && manager.Password != TxtPass.Password)
+            //{
+            //    LblMessage.Visibility = Visibility.Visible;
+                
+            //}
+            //else
+            //{
+            //    DashboardWindow dw = new DashboardWindow();
+            //    dw.Show();
+            //    this.Close();
+            //}
+
+
+
+
+
+
         }
     }
 }

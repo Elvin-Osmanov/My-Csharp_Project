@@ -26,7 +26,15 @@ namespace LMS.Models
         [StringLength(60)]
         public string Speciality { get; set; }
 
+        [Required]
+        [StringLength(60)]
+        public string Email { get; set; }
 
-        
+        [Required]
+        [StringLength(60)]
+        public string Password { get; set; }
+
+
+
     }
 }

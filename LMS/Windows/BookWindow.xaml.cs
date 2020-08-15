@@ -50,7 +50,8 @@ namespace LMS.Windows
             TxtAuthor.Clear();
             TxtPrice.Clear();
             LbGenre.SelectedItem = null;
-
+            TxtQuantity.Clear();
+            TxtShelf.Clear();
 
             BtnAddB.IsEnabled = true;
             BtnDeleteB.IsEnabled = false;
@@ -73,7 +74,24 @@ namespace LMS.Windows
             {
                 LblBName.Foreground = new SolidColorBrush(Colors.Black);
             }
-
+            if (string.IsNullOrEmpty(TxtShelf.Text))
+            {
+                LblShelf.Foreground = new SolidColorBrush(Colors.Red);
+                hasError = true;
+            }
+            else
+            {
+                LblShelf.Foreground = new SolidColorBrush(Colors.Black);
+            }
+            if (string.IsNullOrEmpty(TxtQuantity.Text))
+            {
+                LblQuantity.Foreground = new SolidColorBrush(Colors.Red);
+                hasError = true;
+            }
+            else
+            {
+                LblQuantity.Foreground = new SolidColorBrush(Colors.Black);
+            }
 
             if (string.IsNullOrEmpty(TxtAuthor.Text))
             {
@@ -109,21 +127,7 @@ namespace LMS.Windows
             return hasError;
         }
 
-        //private double PriceValidation()
-        //{
-        //    double p = (double)Convert.ToDouble(TxtPrice.Text);
-        //    if (!double.TryParse(TxtPrice.Text, out double Price))
-        //    {
-        //        LblDollar.Foreground = new SolidColorBrush(Colors.Red);
-               
-        //    }
-        //    else
-        //    {
-        //        LblDollar.Foreground = new SolidColorBrush(Colors.Black);
-        //    }
-
-        //    return p;
-        //}
+      
 
         #endregion
 
@@ -137,15 +141,18 @@ namespace LMS.Windows
                 return;
             }
 
-            
+
 
             Book book = new Book()
             {
                 Name = TxtBName.Text,
                 Author = TxtAuthor.Text,
                 Genre = (Genre)LbGenre.SelectedItem,
-                Price = (double)Convert.ToDouble(TxtPrice.Text)
+                PricePerWeek = (double)Convert.ToDouble(TxtPrice.Text),
+                Quantity = Convert.ToInt32(TxtQuantity.Text),
+                Shelf = Convert.ToInt32(TxtShelf.Text)
             };
+        
 
             _context.Add(book);
             _context.SaveChanges();
@@ -165,9 +172,11 @@ namespace LMS.Windows
             }
 
             _selectedBook.Name = TxtBName.Text;
-            _selectedBook.Price = (double)Convert.ToDouble(TxtPrice.Text);
+            _selectedBook.PricePerWeek =Convert.ToDouble(TxtPrice.Text);
             _selectedBook.Author = TxtAuthor.Text;
             _selectedBook.Genre = (Genre)LbGenre.SelectedItem;
+            _selectedBook.Quantity =Convert.ToInt32(TxtQuantity.Text);
+            _selectedBook.Shelf = Convert.ToInt32(TxtShelf.Text);
             _context.SaveChanges();
 
             Reset();
@@ -198,8 +207,10 @@ namespace LMS.Windows
 
             TxtBName.Text = _selectedBook.Name;
             TxtAuthor.Text = _selectedBook.Author;
-            TxtPrice.Text = _selectedBook.Price.ToString();
+            TxtPrice.Text = _selectedBook.PricePerWeek.ToString();
             LbGenre.SelectedItem = _selectedBook.Genre;
+            TxtQuantity.Text = _selectedBook.Quantity.ToString();
+            TxtShelf.Text = _selectedBook.Shelf.ToString();
 
             BtnAddB.IsEnabled = false;
             BtnDeleteB.IsEnabled = true;
@@ -217,6 +228,11 @@ namespace LMS.Windows
         private void TxtPrice_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = new Regex("[^0-9,]+").IsMatch(e.Text);
+        }
+
+        private void TxtQuantity_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
         }
 
         private void TxtBName_TextChanged(object sender, TextChangedEventArgs e)
@@ -239,17 +255,11 @@ namespace LMS.Windows
             }
         }
 
+        private void TxtShelf_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
+        }
         #endregion
-
-
-
-
-
-
-
-
-
-
 
 
     }

@@ -5,19 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LMS.Windows"
         mc:Ignorable="d"
-        Title="Book" Height="642" Width="909" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Grid>
-        <DataGrid x:Name="DgvBooks" Margin="370,10,10,10" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False" SelectionChanged="DgvBooks_SelectionChanged">
+        Title="Book" Height="799" Width="997" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid >
+        <DataGrid x:Name="DgvBooks" Margin="370,10,10,10" CanUserDeleteRows="False" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False" SelectionChanged="DgvBooks_SelectionChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="0.25*" Header="Name" Binding="{Binding Name}"/>
-                <DataGridTextColumn Width="0.25*" Header="Genre" Binding="{Binding Genre.Name}"/>
-                <DataGridTextColumn Width="0.25*" Header="Author" Binding="{Binding Author}"/>
-                <DataGridTextColumn Width="0.25*" Header="Price $" Binding="{Binding Price}"/>
-                
+                <DataGridTextColumn Width="0.20*" Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Width="0.20*" Header="Genre" Binding="{Binding Genre.Name}"/>
+                <DataGridTextColumn Width="0.20*" Header="Author" Binding="{Binding Author}"/>
+                <DataGridTextColumn Width="0.15*" Header="Price $" Binding="{Binding PricePerWeek}"/>
+                <DataGridTextColumn Width="0.15*" Header="Quantity" Binding="{Binding Quantity}"/>
+                <DataGridTextColumn Width="0.10*" Header="Shelf" Binding="{Binding Shelf}"/>
+
             </DataGrid.Columns>
         </DataGrid>
 
-        <Grid Margin="0,0,544,0" >
+        <Grid Margin="0,0,632,0" >
             <Label x:Name="LblBName" Content="Name of the Book*" HorizontalAlignment="Center" Margin="0,54,0,0" VerticalAlignment="Top" Height="29" Width="146" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="15"/>
             <TextBox x:Name="TxtBName" HorizontalAlignment="Center" Margin="0,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" TextChanged="TxtBName_TextChanged"  />
             <Label x:Name="LblGenre" Content="Genre*" HorizontalAlignment="Center" Margin="0,146,0,0" VerticalAlignment="Top" Height="29" Width="63" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="15"/>
@@ -26,10 +28,14 @@
             <Label x:Name="LblPrice" Content="Price*" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29" Width="62" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="15" Margin="76,470,0,0"/>
             <TextBox x:Name="TxtPrice" HorizontalAlignment="Left" Margin="186,470,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Height="29" PreviewTextInput="TxtPrice_PreviewTextInput"/>
             <Label x:Name="LblDollar" Content="$" HorizontalAlignment="Left" Margin="169,470,0,0" VerticalAlignment="Top" Height="29" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" FontWeight="Bold"/>
-            <Button x:Name="BtnAddB" Content="Add" HorizontalAlignment="Left" Margin="49,538,0,0" VerticalAlignment="Top" Click="BtnAddB_Click"/>
-            <Button x:Name="BtnEditB" Content="Edit" HorizontalAlignment="Center" Margin="0,538,0,0" VerticalAlignment="Top" IsEnabled="False" Click="BtnEditB_Click"/>
-            <Button x:Name="BtnDeleteB" Content="Delete" HorizontalAlignment="Left" Margin="245,538,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.506,0.476" IsEnabled="False" Click="BtnDeleteB_Click"/>
-            <ListBox x:Name="LbGenre" Margin="76,197,73,286" Background="#FFCCF4D9"/>
+            <Button x:Name="BtnAddB" Content="Add" HorizontalAlignment="Left" Margin="49,694,0,0" VerticalAlignment="Top" Click="BtnAddB_Click"/>
+            <Button x:Name="BtnEditB" Content="Edit" HorizontalAlignment="Center" Margin="0,694,0,0" VerticalAlignment="Top" IsEnabled="False" Click="BtnEditB_Click"/>
+            <Button x:Name="BtnDeleteB" Content="Delete" HorizontalAlignment="Left" Margin="244,694,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.506,0.476" IsEnabled="False" Click="BtnDeleteB_Click"/>
+            <ListBox x:Name="LbGenre" Margin="76,197,73,424" Background="#FFCCF4D9"/>
+            <Label x:Name="LblQuantity" Content="Quantity*" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29" Width="81" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="15" Margin="76,552,0,0"/>
+            <TextBox x:Name="TxtQuantity" HorizontalAlignment="Left" Margin="186,552,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Height="29" PreviewTextInput="TxtQuantity_PreviewTextInput" />
+            <Label x:Name="LblShelf" Content="Shelf*" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29" Width="81" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="15" Margin="76,630,0,0"/>
+            <TextBox x:Name="TxtShelf" HorizontalAlignment="Left" Margin="186,630,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Height="29" PreviewTextInput="TxtShelf_PreviewTextInput"  />
         </Grid>
 
     </Grid>

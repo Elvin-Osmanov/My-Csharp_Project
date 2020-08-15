@@ -44,6 +44,8 @@ namespace LMS.Windows
             TxtMsurname.Clear();
             TxtSpeciality.Clear();
             DtpDate.SelectedDate = null;
+            TxtEmail.Clear();
+            TxtPassword.Clear();
 
 
             BtnAddM.IsEnabled = true;
@@ -68,6 +70,25 @@ namespace LMS.Windows
                 LblName.Foreground = new SolidColorBrush(Colors.Black);
             }
 
+
+            if (string.IsNullOrEmpty(TxtEmail.Text))
+            {
+                LblEmail.Foreground = new SolidColorBrush(Colors.Red);
+                hasError = true;
+            }
+            else
+            {
+                LblEmail.Foreground = new SolidColorBrush(Colors.Black);
+            }
+            if (string.IsNullOrEmpty(TxtPassword.Text))
+            {
+                LblPass.Foreground = new SolidColorBrush(Colors.Red);
+                hasError = true;
+            }
+            else
+            {
+                LblPass.Foreground = new SolidColorBrush(Colors.Black);
+            }
 
             if (string.IsNullOrEmpty(TxtMsurname.Text))
             {
@@ -117,7 +138,9 @@ namespace LMS.Windows
                 Name = TxtMname.Text,
                 Surname = TxtMsurname.Text,
                 Speciality = TxtSpeciality.Text,
-                BirthDate =(DateTime) DtpDate.SelectedDate
+                BirthDate =(DateTime) DtpDate.SelectedDate,
+                Email = TxtEmail.Text,
+                Password = TxtPassword.Text
             };
 
             _context.Add(manager);
@@ -142,6 +165,8 @@ namespace LMS.Windows
             _selectedManager.Surname = TxtMsurname.Text;
             _selectedManager.Speciality = TxtSpeciality.Text;
             _selectedManager.BirthDate = (DateTime)DtpDate.SelectedDate;
+            _selectedManager.Email = TxtEmail.Text;
+            _selectedManager.Password = TxtPassword.Text;
             _context.SaveChanges();
 
             Reset();
@@ -160,6 +185,8 @@ namespace LMS.Windows
             TxtMsurname.Text = _selectedManager.Surname;
             TxtSpeciality.Text= _selectedManager.Speciality;
             DtpDate.SelectedDate = _selectedManager.BirthDate;
+            TxtPassword.Text = _selectedManager.Password;
+            TxtEmail.Text = _selectedManager.Email;
 
             BtnAddM.IsEnabled = false;
             BtnDeleteM.IsEnabled = true;
@@ -216,6 +243,34 @@ namespace LMS.Windows
 
             }
         }
+
+
+        private void TxtEmail_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+
+
+            if (e.Key == Key.Space)
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void TxtPassword_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.Key == Key.Space)
+            {
+                e.Handled = true;
+            }
+
+        }
         #endregion
+
+
+
+
+
+
     }
 }

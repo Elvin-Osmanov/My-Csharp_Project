@@ -34,6 +34,11 @@ namespace LMS.Models
 
         public List<Order> Order { get; set; }
 
-
+        //public string FullName { 
+        //    get
+        //    {
+        //        return Name + " "+  Surname;
+        //    } 
+        //}
     }
 }

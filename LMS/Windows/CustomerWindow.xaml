@@ -7,13 +7,17 @@
         mc:Ignorable="d"
         Title="Customer" Height="501" Width="779" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <DataGrid x:Name="DgvCustomers" Margin="254,10,10,10" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False" SelectionChanged="DgvCustomers_SelectionChanged">
+        
+        <DataGrid x:Name="DgvCustomers" Margin="254,10,10,10" CanUserDeleteRows="False" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False" SelectionChanged="DgvCustomers_SelectionChanged" >
+            
             <DataGrid.Columns>
+                
                 <DataGridTextColumn Width="0.15*" Header="Name" Binding="{Binding Name}"/>
                 <DataGridTextColumn Width="0.15*" Header="Surname" Binding="{Binding Surname}"/>
-                <DataGridTextColumn Width="0.17*" Header="Birth Date" Binding="{Binding BirthDate, StringFormat=\{0:dd.MM.yyyy \}}"/>
-                <DataGridTextColumn Width="0.23*" Header="Phone Number" Binding="{Binding PhoneNumber}"/>
-                <DataGridTextColumn Width="0.25*" Header="Created At" Binding="{Binding CreatedAt}"/>
+                <DataGridTextColumn Width="0.20*" Header="Birth Date" Binding="{Binding BirthDate, StringFormat=\{0:dd.MM.yyyy \}}"/>
+                <DataGridTextColumn Width="0.20*" Header="Phone Number" Binding="{Binding PhoneNumber}"/>
+                <DataGridTextColumn Width="0.30*" Header="Created At" Binding="{Binding CreatedAt}"/>
+                
             </DataGrid.Columns>
         </DataGrid>
 

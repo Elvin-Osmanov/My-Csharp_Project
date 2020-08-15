@@ -25,7 +25,15 @@ namespace LMS.Models
 
         [Required]
         [Column(TypeName = "money")]
-        public double Price { get; set; }
+        public double PricePerWeek { get; set; }
+
+        [Required]
+        public int Quantity { get; set; }
+
+        public IList<OrderItem> OrderItem { get; set; }
+
+        [Required]
+        public int Shelf { get; set; }
 
     }
 }

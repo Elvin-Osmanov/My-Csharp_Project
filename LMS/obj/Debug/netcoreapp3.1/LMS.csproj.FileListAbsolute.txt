@@ -59,3 +59,11 @@ C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\CustomerWind
 C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\CustomerWindow.baml
 C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\BookWindow.g.cs
 C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\BookWindow.baml
+C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\CreateOrderWindow.g.cs
+C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\CreateOrderWindow.baml
+C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\BookReturnWindow.g.cs
+C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\BookReturnWindow.baml
+C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\OrderStreamingWindow.g.cs
+C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\SalesReportWindow.g.cs
+C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\OrderStreamingWindow.baml
+C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\SalesReportWindow.baml

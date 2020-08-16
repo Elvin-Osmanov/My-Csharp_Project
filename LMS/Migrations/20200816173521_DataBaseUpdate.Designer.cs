@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LMS.Migrations
 {
     [DbContext(typeof(LmsContext))]
-    [Migration("20200816140857_DatabaseUpdate")]
-    partial class DatabaseUpdate
+    [Migration("20200816173521_DataBaseUpdate")]
+    partial class DataBaseUpdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -188,7 +188,6 @@ namespace LMS.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("date");
 
                     b.Property<int>("CustomerId")
@@ -208,6 +207,9 @@ namespace LMS.Migrations
 
                     b.Property<DateTime?>("ReturnedDate")
                         .HasColumnType("date");
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 

@@ -97,7 +97,7 @@ namespace LMS.Windows
             {
                 var worksheet = workbook.Worksheets.Add("Orders");
 
-                worksheet.Columns("A", "H").AdjustToContents();
+                worksheet.Columns("A", "I").AdjustToContents();
 
                 worksheet.Cell("A1").SetValue("Name");
                 worksheet.Cell("B1").SetValue("Surname");
@@ -107,6 +107,7 @@ namespace LMS.Windows
                 worksheet.Cell("F1").SetValue("ReturnedDate");
                 worksheet.Cell("G1").SetValue("Fine");
                 worksheet.Cell("H1").SetValue("Payment");
+                worksheet.Cell("I1").SetValue("Total Payment");
 
                 worksheet.Cell("A1").Style.Fill.SetBackgroundColor(XLColor.FromArgb(0, 181, 204));
                 worksheet.Cell("B1").Style.Fill.SetBackgroundColor(XLColor.FromArgb(0, 181, 204));
@@ -116,6 +117,7 @@ namespace LMS.Windows
                 worksheet.Cell("F1").Style.Fill.SetBackgroundColor(XLColor.FromArgb(0, 181, 204));
                 worksheet.Cell("G1").Style.Fill.SetBackgroundColor(XLColor.FromArgb(0, 181, 204));
                 worksheet.Cell("H1").Style.Fill.SetBackgroundColor(XLColor.FromArgb(0, 181, 204));
+                worksheet.Cell("I1").Style.Fill.SetBackgroundColor(XLColor.FromArgb(0, 181, 204));
 
 
                 worksheet.Cell("A1").Style.Font.SetFontColor(XLColor.White);
@@ -126,6 +128,7 @@ namespace LMS.Windows
                 worksheet.Cell("F1").Style.Font.SetFontColor(XLColor.White);
                 worksheet.Cell("G1").Style.Font.SetFontColor(XLColor.White);
                 worksheet.Cell("H1").Style.Font.SetFontColor(XLColor.White);
+                worksheet.Cell("I1").Style.Font.SetFontColor(XLColor.White);
 
 
                 int row = 2;
@@ -141,6 +144,7 @@ namespace LMS.Windows
                     worksheet.Cell("F" + row).Value = order.ReturnedDate;
                     worksheet.Cell("G" + row).Value = order.Fine;
                     worksheet.Cell("H" + row).Value = order.OrderPrice;
+                    worksheet.Cell("I" + row).Value = order.TotalPrice;
 
                     row++;
                 }

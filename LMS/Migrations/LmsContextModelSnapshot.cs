@@ -186,7 +186,6 @@ namespace LMS.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("date");
 
                     b.Property<int>("CustomerId")
@@ -206,6 +205,9 @@ namespace LMS.Migrations
 
                     b.Property<DateTime?>("ReturnedDate")
                         .HasColumnType("date");
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 

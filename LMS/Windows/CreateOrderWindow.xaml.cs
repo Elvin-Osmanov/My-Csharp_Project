@@ -65,7 +65,7 @@ namespace LMS.Windows
         //Filling Data
         private void BooksData()
         {
-            DgvSBooks.ItemsSource = _context.Books.ToList();
+            DgvSBooks.ItemsSource = _context.Books.Where(b=>b.Quantity>0).ToList();
         }
 
         //Filling Customer
@@ -125,7 +125,7 @@ namespace LMS.Windows
         //Search button for Books
         private void BtnBSearch_Click(object sender, RoutedEventArgs e)
         {
-            DgvSBooks.ItemsSource = _context.Books.Where(x => x.Name.Contains(TxtBSearch.Text)).ToList();
+            DgvSBooks.ItemsSource = _context.Books.Where(x => x.Name.Contains(TxtBSearch.Text) && x.Quantity>0).ToList();
         }
 
         //Creation of order
@@ -143,6 +143,8 @@ namespace LMS.Windows
 
             var week = Math.Ceiling(priceForDays);
 
+            MessageBox.Show(week.ToString());
+
             decimal priceForNow = 0;
 
             foreach (var book in books)
@@ -150,10 +152,18 @@ namespace LMS.Windows
                 priceForNow = Convert.ToDecimal(+book.PricePerWeek);
             }
 
+            if (week == 0)
+            {
+                week++;
+            }
+            
             decimal PriceOfOrder = Math.Abs(Convert.ToDecimal(week) * priceForNow);
+
+
 
             Order order = new Order()
             {
+                
                 OrderPrice = PriceOfOrder,
                 ReturnDate = (DateTime)DtpDeadline.SelectedDate,
                 CreatedAt = (DateTime)DtpOrderCreatedDate.SelectedDate,
@@ -205,16 +215,16 @@ namespace LMS.Windows
                 MessageBox.Show("This book is out of stock");
                 return;
             }
-            else
-            {
-                _selectedBook.Quantity--;
-            }
+           
+              _selectedBook.Quantity--;
+            
 
             var choosenBook = books.FirstOrDefault(b => b.Id == _selectedBook.Id);
 
             if (choosenBook != null)
             {
                 MessageBox.Show("You can choose identical book only once");
+                return;
             }
 
             books.Add(_selectedBook);

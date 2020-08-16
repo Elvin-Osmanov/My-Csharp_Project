@@ -16,7 +16,6 @@ namespace LMS.Models
         public Customer Customer { get; set; }
 
         [Required]
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Column(TypeName = "date")]
         public DateTime CreatedAt { get; set; }
 
@@ -40,9 +39,10 @@ namespace LMS.Models
         public DateTime? ReturnedDate { get; set; }
 
 
-        public decimal TotalPrice()
+        public decimal TotalPrice
         {
-            return OrderPrice + (decimal)Fine;
+            get; set;
+
         }
 
     }

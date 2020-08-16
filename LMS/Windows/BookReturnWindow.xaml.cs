@@ -30,11 +30,32 @@ namespace LMS.Windows
             InitializeComponent();
             _context = new LmsContext();
 
-            OrderDataFill();
+            
             Fine();
+            TotalPrice();
+            OrderDataFill();
         }
 
         //Fine Calculation
+
+        private void TotalPrice()
+        {
+            var books = _context.Orders.Where(x => x.Returned == false);
+            
+            foreach(var book in books)
+            {
+                if (book.Fine != null)
+                {
+                    var Total = book.OrderPrice + book.Fine;
+
+                    book.TotalPrice = (decimal)Total;
+                }
+                else
+                {
+                    book.TotalPrice = book.OrderPrice;
+                }
+            }
+        }
 
         private void Fine()
         {
@@ -64,7 +85,7 @@ namespace LMS.Windows
             if (DgvReturnBooks.SelectedItem == null) return;
 
             _selectedOrder = (Order)DgvReturnBooks.SelectedItem;
-
+            
 
         }
 
@@ -89,7 +110,7 @@ namespace LMS.Windows
 
             foreach (var q in bookQuantity)
             {
-                q.Book.Quantity+= 1;
+                q.Book.Quantity++;
             }
 
             _selectedOrder.Returned = true;

@@ -59,7 +59,7 @@ namespace LMS.Windows
 
             }
 
-            var manager = _context.Managers.FirstOrDefault(m => m.Email==TxtPass.Password);
+            var manager = _context.Managers.FirstOrDefault(m => m.Password==TxtPass.Password);
             //manager log
             if (manager != null)
             {

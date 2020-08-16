@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LMS.Migrations
 {
-    public partial class DatabaseUpdate : Migration
+    public partial class DataBaseUpdate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -78,12 +78,13 @@ namespace LMS.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CustomerId = table.Column<int>(nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "date", nullable: false, defaultValueSql: "GetDate()"),
+                    CreatedAt = table.Column<DateTime>(type: "date", nullable: false),
                     ReturnDate = table.Column<DateTime>(type: "date", nullable: false),
                     OrderPrice = table.Column<decimal>(type: "money", nullable: false),
                     Fine = table.Column<decimal>(type: "money", nullable: true),
-                    Returned = table.Column<bool>(nullable: false, defaultValue:false),
-                    ReturnedDate = table.Column<DateTime>(type: "date", nullable: true)
+                    Returned = table.Column<bool>(nullable: false),
+                    ReturnedDate = table.Column<DateTime>(type: "date", nullable: true),
+                    TotalPrice = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {

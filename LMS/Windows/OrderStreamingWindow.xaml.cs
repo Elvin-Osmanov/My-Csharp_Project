@@ -34,7 +34,7 @@ namespace LMS.Windows
         //Shows Returning books for tomorrow
         private void FillTomorrow()
         {
-            DgvTomorrow.ItemsSource = _context.OrderItems.Where(x => x.Order.ReturnDate == DateTime.Today.AddDays(-1)).Include(x => x.Order.Customer).Include(b=>b.Book).ToList();
+            DgvTomorrow.ItemsSource = _context.OrderItems.Where(x => x.Order.ReturnDate == DateTime.Today.AddDays(1)).Include(x => x.Order.Customer).Include(b=>b.Book).ToList();
         }
 
         //Shows Returning books for today

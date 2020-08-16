@@ -66,7 +66,7 @@ namespace LMS.Windows
                 var FineDays= (book.ReturnDate - DateTime.Today).Days;
                 if (FineDays < 0)
                 {
-                    book.Fine = Math.Abs((decimal)(+FineDays * 0.05));
+                    book.Fine = Math.Abs((decimal)(+FineDays * 0.5));
                 }
             }
         }

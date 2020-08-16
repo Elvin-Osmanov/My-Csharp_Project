@@ -143,7 +143,7 @@ namespace LMS.Windows
 
             var week = Math.Ceiling(priceForDays);
 
-            MessageBox.Show(week.ToString());
+           
 
             decimal priceForNow = 0;
 

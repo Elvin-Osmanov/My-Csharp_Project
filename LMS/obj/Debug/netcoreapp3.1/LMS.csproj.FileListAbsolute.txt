@@ -67,3 +67,6 @@ C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\OrderStreami
 C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\SalesReportWindow.g.cs
 C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\OrderStreamingWindow.baml
 C:\Users\Elvin\source\repos\LMS\LMS\obj\Debug\netcoreapp3.1\Windows\SalesReportWindow.baml
+C:\Users\Elvin\source\repos\LMS\LMS\bin\Debug\netcoreapp3.1\ClosedXML.dll
+C:\Users\Elvin\source\repos\LMS\LMS\bin\Debug\netcoreapp3.1\DocumentFormat.OpenXml.dll
+C:\Users\Elvin\source\repos\LMS\LMS\bin\Debug\netcoreapp3.1\ExcelNumberFormat.dll

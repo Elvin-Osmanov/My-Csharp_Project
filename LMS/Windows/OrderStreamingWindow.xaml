@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LMS.Windows"
         mc:Ignorable="d"
-        Title="OrderStreamingWindow" Height="450" Width="800">
+        Title="OrderStreamingWindow" Height="585" Width="1298">
     <Grid>
-        
+        <DataGrid x:Name="DgvTomorrow" Margin="10,240,865,10" />
+        <DataGrid x:Name="DgvToday" Margin="455,240,437,10" />
+        <DataGrid x:Name="DgvYesterday" Margin="883,240,9,10"/>
+        <Label x:Name="LblTomorrow" Content="Books On Return for Tomorrow" HorizontalAlignment="Left" Margin="76,69,0,0" VerticalAlignment="Top" Height="64" Width="292" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="#DD00FF96"/>
+        <Label x:Name="LblToday" Content="Books On Return for Today" HorizontalAlignment="Left" Margin="512,69,0,0" VerticalAlignment="Top" Height="64" Width="292" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="#DD00FF96"/>
+        <Label x:Name="LblYesterday" Content="Expired Deadlines" HorizontalAlignment="Left" Margin="940,69,0,0" VerticalAlignment="Top" Height="64" Width="292" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="#DD00FF96"/>
     </Grid>
 </Window>

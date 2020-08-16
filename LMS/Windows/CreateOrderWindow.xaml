@@ -32,12 +32,12 @@
         </Grid>
         <DataGrid x:Name="DgvOrders" Margin="895,10,10,37" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="0.20*" Header="Customer" Binding="{Binding CustomerId.Name}"/>
-                <DataGridTextColumn Width="0.20*" Header="Book" Binding="{Binding BookId.Name}"/>
-                <DataGridTextColumn Width="0.20*" Header="Price Per Week" Binding="{Binding PricePerWeek}"/>
-                <DataGridTextColumn Width="0.20*" Header="Total Price" Binding="{Binding OrderPrice}"/>
-                <DataGridTextColumn Width="0.20*" Header="Order Date" Binding="{Binding CreatedAt}"/>
-                <DataGridTextColumn Width="0.20*" Header="Deadline" Binding="{Binding ReturnDate}"/>
+                <DataGridTextColumn Width="0.20*" Header="Customer" Binding="{Binding Order.Customer.Name}"/>
+                <DataGridTextColumn Width="0.20*" Header="Book" Binding="{Binding Book.Name}"/>
+                <DataGridTextColumn Width="0.20*" Header="Price Per Week" Binding="{Binding Book.PricePerWeek}"/>
+                <DataGridTextColumn Width="0.20*" Header="Total Price" Binding="{Binding Order.OrderPrice}"/>
+                <DataGridTextColumn Width="0.20*" Header="Order Date" Binding="{Binding Order.CreatedAt}"/>
+                <DataGridTextColumn Width="0.20*" Header="Deadline" Binding="{Binding Order.ReturnDate}"/>
 
             </DataGrid.Columns>
 

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LMS.Migrations
 {
     [DbContext(typeof(LmsContext))]
-    [Migration("20200811191458_BookGenreIdFix")]
-    partial class BookGenreIdFix
+    [Migration("20200816093137_DataBaseUpdate")]
+    partial class DataBaseUpdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -73,8 +73,14 @@ namespace LMS.Migrations
                         .HasColumnType("nvarchar(60)")
                         .HasMaxLength(60);
 
-                    b.Property<decimal>("Price")
+                    b.Property<decimal>("PricePerWeek")
                         .HasColumnType("money");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Shelf")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -144,7 +150,17 @@ namespace LMS.Migrations
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("date");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(60)")
+                        .HasMaxLength(60);
+
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(60)")
+                        .HasMaxLength(60);
+
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(60)")
                         .HasMaxLength(60);
@@ -178,7 +194,19 @@ namespace LMS.Migrations
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
+                    b.Property<decimal?>("Fine")
+                        .HasColumnType("money");
+
+                    b.Property<decimal>("OrderPrice")
+                        .HasColumnType("money");
+
                     b.Property<DateTime>("ReturnDate")
+                        .HasColumnType("date");
+
+                    b.Property<bool?>("Returned")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ReturnedDate")
                         .HasColumnType("date");
 
                     b.HasKey("Id");
@@ -195,7 +223,17 @@ namespace LMS.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("OrderId");
 
                     b.ToTable("OrderItems");
                 });
@@ -214,6 +252,21 @@ namespace LMS.Migrations
                     b.HasOne("LMS.Models.Customer", "Customer")
                         .WithMany("Order")
                         .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("LMS.Models.OrderItem", b =>
+                {
+                    b.HasOne("LMS.Models.Book", "Book")
+                        .WithMany("OrderItem")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LMS.Models.Order", "Order")
+                        .WithMany("OrderItem")
+                        .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

@@ -59,19 +59,24 @@ namespace LMS.Windows
 
             }
 
-            //var manager = _context.Managers.FirstOrDefault(m => m.Email.Contains(TxtUser.Text));
-            ////manager log
-            //if (manager.Email == null && manager.Password != TxtPass.Password)
-            //{
-            //    LblMessage.Visibility = Visibility.Visible;
-                
-            //}
-            //else
-            //{
-            //    DashboardWindow dw = new DashboardWindow();
-            //    dw.Show();
-            //    this.Close();
-            //}
+            var manager = _context.Managers.FirstOrDefault(m => m.Email==TxtUser.Text);
+            //manager log
+            if (manager != null)
+            {
+
+
+                if (manager.Email == null && manager.Password != TxtPass.Password)
+                {
+                    LblMessage.Visibility = Visibility.Visible;
+
+                }
+                else
+                {
+                    DashboardWindow dw = new DashboardWindow();
+                    dw.Show();
+                    this.Close();
+                }
+            }
 
 
 

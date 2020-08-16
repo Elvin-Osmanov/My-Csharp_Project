@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LMS.Windows"
         mc:Ignorable="d"
-        Title="BookReturnWindow" Height="450" Width="800">
+        Title="Book Return" Height="600" Width="1210" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        
+        <DataGrid x:Name="DgvReturnBooks" AutoGenerateColumns="False" IsReadOnly="True" Margin="10,278,10,10" SelectionChanged="DgvReturnBooks_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="0.15*" Header="Name" Binding="{Binding Customer.Name}"/>
+                <DataGridTextColumn Width="0.15*" Header="Surname" Binding="{Binding Customer.Surname}"/>
+                <DataGridTextColumn Width="0.20*" Header="Phone" Binding="{Binding Customer.PhoneNumber}"/>
+                <DataGridTextColumn Width="0.15*" Header="Created" Binding="{Binding CreatedAt, StringFormat=\{0:dd.MM.yyyy \}}"/>
+                <DataGridTextColumn Width="0.15*" Header="Deadline" Binding="{Binding ReturnDate, StringFormat=\{0:dd.MM.yyyy \}}"/>
+                <DataGridTextColumn Width="0.10*" Header="Payment" Binding="{Binding OrderPrice, StringFormat=\{0:0.00 \}}"/>
+                <DataGridTextColumn Width="0.10*" Header="Fine" Binding="{Binding Fine, StringFormat=\{0:0.00 \}}"/>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <Grid Margin="0,0,0,311">
+            <Label x:Name="LblSCustomer" Content="Search For Customer" HorizontalAlignment="Left" Margin="55,45,0,0" VerticalAlignment="Top" Height="29" Width="154" VerticalContentAlignment="Center" FontSize="15" FontWeight="Bold"/>
+            <TextBox x:Name="TxtSCustomer" HorizontalAlignment="Left" Margin="214,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Height="29"/>
+            <Button x:Name="BtnSearch" Content="Search" HorizontalAlignment="Left" Margin="463,42,0,0" VerticalAlignment="Top" Width="120" Click="BtnSearch_Click"/>
+            <Button x:Name="BtnReturn" Content="Return The Book" HorizontalAlignment="Left" Margin="55,154,0,0" VerticalAlignment="Top" Height="50" Width="156" RenderTransformOrigin="0.5,0.5" Click="BtnReturn_Click"/>
+
+
+            <Label x:Name="LblMessage" Content="" HorizontalAlignment="Left" Margin="605,137,0,0" VerticalAlignment="Top" Height="58" Width="534" Foreground="#DDFF0000"/>
+        </Grid>
+
     </Grid>
 </Window>

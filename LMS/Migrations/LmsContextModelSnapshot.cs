@@ -201,6 +201,12 @@ namespace LMS.Migrations
                     b.Property<DateTime>("ReturnDate")
                         .HasColumnType("date");
 
+                    b.Property<bool?>("Returned")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ReturnedDate")
+                        .HasColumnType("date");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CustomerId");

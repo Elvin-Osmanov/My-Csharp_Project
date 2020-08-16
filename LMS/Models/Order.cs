@@ -33,6 +33,11 @@ namespace LMS.Models
 
         public IList<OrderItem> OrderItem { get; set; }
 
+        
+        public bool? Returned { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? ReturnedDate { get; set; }
 
     }
 }

@@ -37,11 +37,14 @@ namespace LMS.Windows
 
             FillOrderBase();
             BooksData();
+            CustomersData();
         }
 
         private void FillOrderBase()
         {
-            DgvOrders.ItemsSource = _context.Orders.ToList();
+            DgvOrders.ItemsSource = _context.OrderItems.Include("Order").Include("Order.Customer").ToList();
+            
+           
         }
 
         private void ResetingData()
@@ -53,14 +56,21 @@ namespace LMS.Windows
             TxtBSearch.Clear();
             TxtCSearch.Clear();
 
-
-            DgvOrders.ItemsSource = _context.Orders.ToList();
+            
+            FillOrderBase();
+            
         }
 
         private void BooksData()
         {
             DgvSBooks.ItemsSource = _context.Books.ToList();
         }
+
+        private void CustomersData()
+        {
+            DgvSCustomers.ItemsSource = _context.Customers.ToList();
+        }
+
         private void BtnCSearch_Click(object sender, RoutedEventArgs e)
         {
 
@@ -118,27 +128,28 @@ namespace LMS.Windows
             }
 
 
-            //Calculatind day and price realtion
+            //Calculatind day and price relation
 
             double priceForDays = (((DateTime)DtpDeadline.SelectedDate - (DateTime)DtpOrderCreatedDate.SelectedDate).Days) / 7.0;
 
-            double week = Math.Ceiling(priceForDays);
+            var week = Math.Ceiling(priceForDays);
 
-            double priceForNow = 0;
+            decimal priceForNow = 0;
 
             foreach (var book in books)
             {
-                priceForNow = priceForNow + book.PricePerWeek;
+                priceForNow = Convert.ToDecimal(+book.PricePerWeek);
             }
 
-            decimal PriceOfOrder = Convert.ToDecimal(week) * Convert.ToDecimal(priceForNow);
+            decimal PriceOfOrder = Convert.ToDecimal(week) * priceForNow;
 
             Order order = new Order()
             {
                 OrderPrice = PriceOfOrder,
                 ReturnDate = (DateTime)DtpDeadline.SelectedDate,
                 CreatedAt = (DateTime)DtpOrderCreatedDate.SelectedDate,
-                CustomerId=_selectedCustomer.Id
+                CustomerId=_selectedCustomer.Id,
+                Returned = false
                 
             };
 
@@ -190,7 +201,7 @@ namespace LMS.Windows
                 _selectedBook.Quantity = _selectedBook.Quantity - 1;
             }
 
-            var choosenBook = (books.FirstOrDefault(b => b.Id == _selectedBook.Id));
+            var choosenBook = books.FirstOrDefault(b => b.Id == _selectedBook.Id);
 
             if (choosenBook != null)
             {

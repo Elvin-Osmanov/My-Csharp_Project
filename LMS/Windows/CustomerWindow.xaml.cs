@@ -155,7 +155,7 @@ namespace LMS.Windows
 
             if (r == MessageBoxResult.Yes)
             {
-                _context.Customers.Remove(_selectedCustomer);
+                //_context.Customers.Remove(_selectedCustomer);
                 _context.SaveChanges();
 
                 Reset();

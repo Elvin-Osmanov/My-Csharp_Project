@@ -12,7 +12,7 @@
             <TextBox x:Name="TxtCSearch" HorizontalAlignment="Center" Margin="0,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
             <Label x:Name="LblCList" Content="List of Customers" HorizontalAlignment="Center" Margin="0,211,0,0" VerticalAlignment="Top" Width="206" FontWeight="Bold" FontSize="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             <Button x:Name="BtnCSearch" Content="Search" HorizontalAlignment="Center" Margin="0,124,0,0" VerticalAlignment="Top" Width="126" Click="BtnCSearch_Click" />
-            <DataGrid x:Name="DgvSCustomers" Margin="10,300,10,10" CanUserSortColumns="False" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="DgvSCustomers_SelectionChanged">
+            <DataGrid x:Name="DgvSCustomers"  Margin="10,300,10,10" CanUserSortColumns="False" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="DgvSCustomers_SelectionChanged">
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="0.25*" Header="Name" Binding="{Binding Name}"/>
                     <DataGridTextColumn Width="0.25*" Header="Surname" Binding="{Binding Surname}"/>
@@ -34,8 +34,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Width="0.20*" Header="Customer" Binding="{Binding Order.Customer.Name}"/>
                 <DataGridTextColumn Width="0.20*" Header="Book" Binding="{Binding Book.Name}"/>
-                <DataGridTextColumn Width="0.20*" Header="Price Per Week" Binding="{Binding Book.PricePerWeek}"/>
-                <DataGridTextColumn Width="0.20*" Header="Total Price" Binding="{Binding Order.OrderPrice}"/>
+                <DataGridTextColumn Width="0.20*" Header="Price Per Week" Binding="{Binding Book.PricePerWeek, StringFormat=\{0:0.00 \}}"/>
+                <DataGridTextColumn Width="0.20*" Header="Total Price" Binding="{Binding Order.OrderPrice, StringFormat=\{0:0.00 \}}"/>
                 <DataGridTextColumn Width="0.20*" Header="Order Date" Binding="{Binding Order.CreatedAt}"/>
                 <DataGridTextColumn Width="0.20*" Header="Deadline" Binding="{Binding Order.ReturnDate}"/>
 
@@ -47,7 +47,7 @@
             <TextBox x:Name="TxtBSearch" HorizontalAlignment="Center" Margin="0,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" Height="29"/>
             <Button x:Name="BtnBSearch" Content="Search" HorizontalAlignment="Center" Margin="0,123,0,0" VerticalAlignment="Top" Width="126" Click="BtnBSearch_Click"/>
             <Label x:Name="LblBList" Content="List of Books" HorizontalAlignment="Center" Margin="0,211,0,0" VerticalAlignment="Top" Width="206" FontWeight="Bold" FontSize="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            <DataGrid x:Name="DgvSBooks" Margin="10,305,10,10" CanUserSortColumns="False" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="DgvSBooks_SelectionChanged">
+            <DataGrid x:Name="DgvSBooks" SelectionMode="Extended" Margin="10,305,10,10" CanUserSortColumns="False" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="DgvSBooks_SelectionChanged">
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="0.40*" Header="Name" Binding="{Binding Name}"/>
                     <DataGridTextColumn Width="0.40*" Header="Author" Binding="{Binding Author}"/>

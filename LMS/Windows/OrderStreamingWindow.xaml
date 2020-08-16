@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="OrderStreamingWindow" Height="585" Width="1298">
     <Grid>
-        <DataGrid x:Name="DgvTomorrow" Margin="10,240,865,10" AutoGenerateColumns="False" >
+        <DataGrid x:Name="DgvTomorrow" Margin="10,240,865,10" AutoGenerateColumns="False"  CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="0.25*" Header="Name" Binding="{Binding Order.Customer.Name}" />
                 <DataGridTextColumn Width="0.25*" Header="Surname" Binding="{Binding Order.Customer.Surname}" />
@@ -15,7 +15,7 @@
                 <DataGridTextColumn Width="0.25*" Header="Book" Binding="{Binding Book.Name}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="DgvToday" Margin="455,240,437,10" AutoGenerateColumns="False">
+        <DataGrid x:Name="DgvToday" Margin="455,240,437,10" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="0.25*" Header="Name" Binding="{Binding Order.Customer.Name}" />
                 <DataGridTextColumn Width="0.25*" Header="Surname" Binding="{Binding Order.Customer.Surname}" />
@@ -23,7 +23,7 @@
                 <DataGridTextColumn Width="0.25*" Header="Book" Binding="{Binding Book.Name}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="DgvYesterday" Margin="883,240,9,10" AutoGenerateColumns="False">
+        <DataGrid x:Name="DgvYesterday" Margin="883,240,9,10" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="0.25*" Header="Name" Binding="{Binding Order.Customer.Name}" />
                 <DataGridTextColumn Width="0.25*" Header="Surname" Binding="{Binding Order.Customer.Surname}" />

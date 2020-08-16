@@ -33,6 +33,13 @@ namespace LMS.Windows
            
         }
 
+        //Filling data for export
+        private void FillDataBase()
+        {
+            DgvExport.ItemsSource = _context.Orders.Where(x => x.CreatedAt >= DtpStartDate.SelectedDate && x.ReturnDate <= DtpEndDate.SelectedDate || (x.ReturnedDate >= DtpStartDate.SelectedDate && x.ReturnedDate <= DtpEndDate.SelectedDate)).Include(x => x.Customer).ToList();
+        }
+
+        //Data Validation between two dates
         private bool DatePickVal()
         {
             bool hasError = false;
@@ -65,11 +72,8 @@ namespace LMS.Windows
             
         }
 
-        private void FillDataBase()
-        {
-            DgvExport.ItemsSource = _context.Orders.Where(x => x.CreatedAt >= DtpStartDate.SelectedDate && x.ReturnDate <= DtpEndDate.SelectedDate || (x.ReturnedDate >= DtpStartDate.SelectedDate && x.ReturnedDate <= DtpEndDate.SelectedDate)).Include(x => x.Customer).ToList();
-        }
-
+        
+        //Export button
         private void BtnExport_Click(object sender, RoutedEventArgs e)
         {
             if (DatePickVal())

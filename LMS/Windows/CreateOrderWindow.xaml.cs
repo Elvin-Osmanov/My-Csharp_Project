@@ -47,6 +47,7 @@ namespace LMS.Windows
            
         }
 
+        //Resetting Data
         private void ResetingData()
         {
             DtpDeadline.SelectedDate = null;
@@ -61,22 +62,27 @@ namespace LMS.Windows
             
         }
 
+        //Filling Data
         private void BooksData()
         {
             DgvSBooks.ItemsSource = _context.Books.ToList();
         }
 
+        //Filling Customer
         private void CustomersData()
         {
             DgvSCustomers.ItemsSource = _context.Customers.ToList();
         }
 
+
+        //Search button for Customers
         private void BtnCSearch_Click(object sender, RoutedEventArgs e)
         {
 
             DgvSCustomers.ItemsSource = _context.Customers.Where(x => x.Name.Contains(TxtCSearch.Text)).ToList();
         }
 
+        //Controlling inputs
         private bool inputValidation()
         {
             bool hasError = false;
@@ -115,11 +121,14 @@ namespace LMS.Windows
             return hasError;
         }
 
+
+        //Search button for Books
         private void BtnBSearch_Click(object sender, RoutedEventArgs e)
         {
             DgvSBooks.ItemsSource = _context.Books.Where(x => x.Name.Contains(TxtBSearch.Text)).ToList();
         }
 
+        //Creation of order
         private void BtnCartAdd_Click(object sender, RoutedEventArgs e)
         {
             if (inputValidation())
@@ -141,7 +150,7 @@ namespace LMS.Windows
                 priceForNow = Convert.ToDecimal(+book.PricePerWeek);
             }
 
-            decimal PriceOfOrder = Convert.ToDecimal(week) * priceForNow;
+            decimal PriceOfOrder = Math.Abs(Convert.ToDecimal(week) * priceForNow);
 
             Order order = new Order()
             {
@@ -198,7 +207,7 @@ namespace LMS.Windows
             }
             else
             {
-                _selectedBook.Quantity = _selectedBook.Quantity - 1;
+                _selectedBook.Quantity--;
             }
 
             var choosenBook = books.FirstOrDefault(b => b.Id == _selectedBook.Id);

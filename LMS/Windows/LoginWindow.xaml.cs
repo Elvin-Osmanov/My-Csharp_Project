@@ -59,13 +59,13 @@ namespace LMS.Windows
 
             }
 
-            var manager = _context.Managers.FirstOrDefault(m => m.Email==TxtUser.Text);
+            var manager = _context.Managers.FirstOrDefault(m => m.Email==TxtPass.Password);
             //manager log
             if (manager != null)
             {
 
 
-                if (manager.Email == null && manager.Password != TxtPass.Password)
+                if (manager.Password == null && manager.Email!=TxtUser.Text)
                 {
                     LblMessage.Visibility = Visibility.Visible;
 

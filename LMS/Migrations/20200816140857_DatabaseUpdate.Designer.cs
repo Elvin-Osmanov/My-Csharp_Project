@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LMS.Migrations
 {
     [DbContext(typeof(LmsContext))]
-    [Migration("20200816093137_DataBaseUpdate")]
-    partial class DataBaseUpdate
+    [Migration("20200816140857_DatabaseUpdate")]
+    partial class DatabaseUpdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -203,7 +203,7 @@ namespace LMS.Migrations
                     b.Property<DateTime>("ReturnDate")
                         .HasColumnType("date");
 
-                    b.Property<bool?>("Returned")
+                    b.Property<bool>("Returned")
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("ReturnedDate")

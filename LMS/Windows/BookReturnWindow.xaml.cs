@@ -1,4 +1,5 @@
-﻿using LMS.Data;
+﻿using DocumentFormat.OpenXml.Spreadsheet;
+using LMS.Data;
 using LMS.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -33,6 +34,8 @@ namespace LMS.Windows
             Fine();
         }
 
+        //Fine Calculation
+
         private void Fine()
         {
             var books = _context.Orders.Where(x => x.Returned == false);
@@ -42,15 +45,19 @@ namespace LMS.Windows
                 var FineDays= (book.ReturnDate - DateTime.Today).Days;
                 if (FineDays < 0)
                 {
-                    book.Fine =book.Fine-FineDays;
+                    book.Fine = Math.Abs((decimal)(+FineDays * 0.05));
                 }
             }
         }
+
+        //Selecting Orders from data
         private void OrderDataFill()
         {
             DgvReturnBooks.ItemsSource = _context.Orders.Where(r => r.Returned == false).Include(c => c.Customer).ToList();
             
         }
+
+
 
         private void DgvReturnBooks_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -61,11 +68,20 @@ namespace LMS.Windows
 
         }
 
+        
+        //Search for Customers
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(TxtSCustomer.Text))
+            {
+                MessageBox.Show("Put the name for search");
+                return;
+            }
             DgvReturnBooks.ItemsSource = _context.Orders.Where(c => c.Customer.Name.Contains(TxtSCustomer.Text) && c.Returned == false).ToList();
         }
 
+
+        //Book returning function
         private void BtnReturn_Click(object sender, RoutedEventArgs e)
         {
             if (_selectedOrder == null) return;
@@ -83,13 +99,16 @@ namespace LMS.Windows
 
             OrderDataFill();
 
+            var TotalPayment = _selectedOrder.OrderPrice + _selectedOrder.Fine;
+            
             if (_selectedOrder.Fine > 0)
             {
-                LblMessage.Content="Book Returned" + $" Fine is :{ _selectedOrder.Fine} dollars";
+                LblMessage.Content = "Book Returned, " + $"Total Payment: {String.Format("{0:0.##}", TotalPayment)}$";
+
             }
             else
             {
-                LblMessage.Content = "Book Returned";
+                LblMessage.Content = "Book Returned, " + $"Total Payment: {String.Format("{0:0.##}", _selectedOrder.OrderPrice)}$";
             }
         }
     }

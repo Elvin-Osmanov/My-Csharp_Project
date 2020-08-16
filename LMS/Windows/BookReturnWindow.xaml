@@ -9,13 +9,14 @@
     <Grid>
         <DataGrid x:Name="DgvReturnBooks" AutoGenerateColumns="False" IsReadOnly="True" Margin="10,278,10,10" SelectionChanged="DgvReturnBooks_SelectionChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="0.15*" Header="Name" Binding="{Binding Customer.Name}"/>
-                <DataGridTextColumn Width="0.15*" Header="Surname" Binding="{Binding Customer.Surname}"/>
+                <DataGridTextColumn Width="0.10*" Header="Name" Binding="{Binding Customer.Name}"/>
+                <DataGridTextColumn Width="0.10*" Header="Surname" Binding="{Binding Customer.Surname}"/>
                 <DataGridTextColumn Width="0.20*" Header="Phone" Binding="{Binding Customer.PhoneNumber}"/>
                 <DataGridTextColumn Width="0.15*" Header="Created" Binding="{Binding CreatedAt, StringFormat=\{0:dd.MM.yyyy \}}"/>
                 <DataGridTextColumn Width="0.15*" Header="Deadline" Binding="{Binding ReturnDate, StringFormat=\{0:dd.MM.yyyy \}}"/>
-                <DataGridTextColumn Width="0.10*" Header="Payment" Binding="{Binding OrderPrice, StringFormat=\{0:0.00 \}}"/>
                 <DataGridTextColumn Width="0.10*" Header="Fine" Binding="{Binding Fine, StringFormat=\{0:0.00 \}}"/>
+                <DataGridTextColumn Width="0.10*" Header="Payment" Binding="{Binding OrderPrice, StringFormat=\{0:0.00 \}}"/>
+                <DataGridTextColumn Width="0.10*" Header="Total Price" Binding="{Binding Order.TotalPrice, StringFormat=\{0:0.00 \}}"/>
                 
             </DataGrid.Columns>
         </DataGrid>

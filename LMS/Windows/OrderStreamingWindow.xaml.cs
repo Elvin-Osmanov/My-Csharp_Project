@@ -34,19 +34,19 @@ namespace LMS.Windows
         //Shows Returning books for tomorrow
         private void FillTomorrow()
         {
-            DgvTomorrow.ItemsSource = _context.OrderItems.Where(x => x.Order.Returned == true && x.Order.ReturnDate == DateTime.Today.AddDays(1)).Include(x => x.Order.Customer).Include(b=>b.Book).ToList();
+            DgvTomorrow.ItemsSource = _context.OrderItems.Where(x => x.Order.ReturnDate == DateTime.Today.AddDays(-1)).Include(x => x.Order.Customer).Include(b=>b.Book).ToList();
         }
 
         //Shows Returning books for today
         private void FillToday()
         {
-            DgvToday.ItemsSource = _context.OrderItems.Where(x => x.Order.Returned == true && x.Order.ReturnDate == DateTime.Today).Include(x => x.Order.Customer).Include(b => b.Book).ToList();
+            DgvToday.ItemsSource = _context.OrderItems.Where(x => x.Order.ReturnDate == DateTime.Today).Include(x => x.Order.Customer).Include(b => b.Book).ToList();
         }
 
         //Shows expired books 
         private void ExpiredDeadline()
         {
-            DgvYesterday.ItemsSource = _context.OrderItems.Where(x => x.Order.Returned == true && x.Order.ReturnDate < DateTime.Today).Include(x => x.Order.Customer).Include(b => b.Book).ToList();
+            DgvYesterday.ItemsSource = _context.OrderItems.Where(x => x.Order.ReturnDate < DateTime.Today).Include(x => x.Order.Customer).Include(b => b.Book).ToList();
         }
     }
 }
